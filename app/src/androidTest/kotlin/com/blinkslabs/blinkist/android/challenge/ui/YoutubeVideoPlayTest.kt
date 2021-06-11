@@ -1,6 +1,8 @@
 package com.blinkslabs.blinkist.android.challenge.ui
 
+import android.app.Activity
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
@@ -24,9 +26,14 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class YoutubeVideoPlayTest : TestCase() {
 
+    private lateinit var activity : Activity
+
     @Before
     public override fun setUp() {
         val scenario = ActivityScenario.launch(BooksActivity::class.java)
+        scenario.onActivity {
+            activity = it
+        }
         IdlingRegistry.getInstance().register(CountingIdlingResourceSingleton.countingIdlingResource)
     }
 
