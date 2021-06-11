@@ -25,5 +25,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.BooksActivity" />
         </activity>
+
     </application>
 </manifest>
