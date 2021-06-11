@@ -1,5 +1,6 @@
 package com.blinkslabs.blinkist.android.challenge.ui
 
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
@@ -25,7 +26,7 @@ class YoutubeVideoPlayTest : TestCase() {
 
     @Before
     public override fun setUp() {
-        ActivityScenario.launch(BooksActivity::class.java)
+        val scenario = ActivityScenario.launch(BooksActivity::class.java)
         IdlingRegistry.getInstance().register(CountingIdlingResourceSingleton.countingIdlingResource)
     }
 
