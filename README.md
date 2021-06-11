@@ -1,6 +1,6 @@
-<P>Automation Test for Blinkist Test Task<P>
+<h2>Automation Test for Blinkist Test Task</h2>
 
-- assumptions and considerations :
+<h3>- assumptions and considerations :</h3>
 Assumed that viewModel & BooksService is already covered by unit test.
 Android tests are only responsible to verify user interactions which are not possible by unit test.
 Placement of views, look & feel can be covered by snapshot tests using external library like karumi/shot
