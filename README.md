@@ -15,10 +15,9 @@
  'run..'':
     a. BooksActivityTest : E2E automated tests for the functionality in book list.
     b. YoutubeVideoPlayTest : E2E automated tests for the Youtube video play functionality.
-2. Animations are turned off from build.gradle file.
+<br>2. Animations are turned off from build.gradle file.
 
 <h3>How you approached and designed the test scenarios</h3>
-1.
 
 The test Strategy for end-to-end is mentioned as below :
 <img width="801" alt="image" src="https://user-images.githubusercontent.com/42365090/121757315-5c80e600-cb47-11eb-9847-25264ce40ccc.png">
