@@ -4,30 +4,34 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.blinkslabs.blinkist.android.challenge.R
+import com.blinkslabs.blinkist.android.challenge.util.CountingIdlingResourceSingleton
 import junit.framework.TestCase
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
 @RunWith(AndroidJUnit4::class)
 class BooksActivityTest : TestCase() {
 
     @Before
     public override fun setUp() {
-        ActivityScenario.launch(BooksActivity::class.java)
+       val scenario = ActivityScenario.launch(BooksActivity::class.java)
+        IdlingRegistry.getInstance().register(CountingIdlingResourceSingleton.countingIdlingResource)
     }
 
     @Test
     fun testUserCanSeeBookList(){
         onView(withId(R.id.youtube)).check(matches(isDisplayed()))
-        Thread.sleep(5000)
+        //Thread.sleep(5000)
 
         onView(withId(R.id.recyclerView))
             .perform(
@@ -47,5 +51,7 @@ class BooksActivityTest : TestCase() {
     }
 
     @After
-    public override fun tearDown() {}
+    public override fun tearDown() {
+        IdlingRegistry.getInstance().unregister(CountingIdlingResourceSingleton.countingIdlingResource)
+    }
 }

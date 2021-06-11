@@ -55,6 +55,8 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timber_version"
 
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
+
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.arch.core:core-testing:$arch_testing_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
