@@ -1,4 +1,4 @@
-Automation Test for 
+<P>Automation Test for Blinkist Test Task<P>
 
 - assumptions and considerations :
 Assumed that viewModel & BooksService is already covered by unit test.
