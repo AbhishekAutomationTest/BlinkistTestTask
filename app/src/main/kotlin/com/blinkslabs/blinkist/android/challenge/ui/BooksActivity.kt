@@ -9,7 +9,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.test.espresso.idling.CountingIdlingResource
 import com.blinkslabs.blinkist.android.challenge.BlinkistChallengeApplication
 import com.blinkslabs.blinkist.android.challenge.R
 import com.blinkslabs.blinkist.android.challenge.data.model.Book

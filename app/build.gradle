@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'shot'
+apply plugin: 'com.facebook.testing.screenshot'
 
 android {
     compileSdkVersion 29
@@ -11,7 +13,10 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "com.blinkslabs.blinkist.android.challenge.snapshotTest.MyTestRunner"
+        testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
     buildTypes {
         release {
@@ -28,13 +33,19 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
     }
     testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
         animationsDisabled = true
         unitTests.returnDefaultValues = true
+    }
+    packagingOptions {
+        pickFirst 'META-INF/*'
+        exclude 'META-INF/MANIFEST.MF'
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    androidTestUtil 'androidx.test:orchestrator:1.4.0-beta02'
 
     implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "androidx.activity:activity-ktx:$activityktx_version"
